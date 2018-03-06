@@ -1,20 +1,37 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<fa name="fal {{ icon[0] }}" [style.top]="top[0]" class="circle-o {{ active[0] }} sidebar sidebar-link" id="sidebar-Summary"></fa>
+<fa name="fal {{ icon[1] }}" [style.top]="top[1]" class="circle-o {{ active[1] }} sidebar sidebar-link" id="sidebar-Experience"></fa>
+<fa name="fal {{ icon[2] }}" [style.top]="top[2]" class="circle-o {{ active[2] }} sidebar sidebar-link" id="sidebar-Projects"></fa>
+<fa name="fal {{ icon[3] }}" [style.top]="top[3]" class="circle-o {{ active[3] }} sidebar sidebar-link" id="sidebar-Resume"></fa>
+<fa name="fal {{ icon[4] }}" [style.top]="top[4]" class="circle-o {{ active[4] }} sidebar sidebar-link" id="sidebar-ContactMe"></fa>
+<a href="https://github.com/Isaaclrubio" target="_blank">
+  <fa name="fal fa-github" [style.top]="top[5]" class="sidebar" id="sidebar-GitHub"></fa>
+</a>
+<a href="https://www.linkedin.com/in/isaaclrubio/" target="_blank">
+  <fa name="fal fa-linkedin-square" [style.top]="top[6]" class="sidebar" id="sidebar-LinkedIn"></fa>
+</a>
 
+<section id="home">
+  <h1 class="Writing">Isaac L. Rubio</h1>
+</section>
+
+<section id="Summary" #Summary class="sections">
+  <p class="Title Writing">// Summary</p>
+  <p class="Writing" id="SummryText">Efficient and reliable software tester with a diversified skill set covering embedded software, manual testing and app development. Proactive and passionate to learn and use new technologies and systems. Experienced using Linux and Windows OS for Desktop and extensive knowledge in python, C, Java and SQL databases, aiming to utilize programming skills, database knowledge and offering creative problem-solving skills. <br>
+  Currently playing a key role in the development of the Pyroute Testing Framework as Core Developer using Agile methodologies, Python-based Selenium Webdriver, bash/ shell scripts, defect/bug tracking skills and automation testing. </p>
+</section>
+
+<section id="Experience" #Experience class="sections">
+  <p class="Title Writing">// Experience</p>
+</section>
+
+<section id="Projects" #Projects class="sections">
+  <p class="Title Writing">// Projects</p>
+</section>
+
+<section id="Resume" #Resume class="sections">
+  <p class="Title Writing">// Resume</p>
+</section>
+
+<section id="ContactMe" #ContactMe class="sections">
+  <p class="Title Writing">// Contact Me</p>
+</section>

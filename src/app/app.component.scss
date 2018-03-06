@@ -1,0 +1,107 @@
+ul {
+	list-style-type: none;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.sidebar-link{
+    left: 1vw;
+    position: fixed;
+    z-index: 1000;
+    opacity: 0.5;
+}
+
+.circle-o:hover{
+	opacity: 1;
+}
+
+.circle{
+	opacity: 1;
+}
+
+.sidebar{
+    left: 1vw;
+    position: fixed;
+    z-index: 1000;
+}
+
+#home {
+	height: 100vh;
+	width: 98.8vw;
+	position: relative;
+	background: url("../extras/clint-mckoy-463797.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
+
+h1 {
+	font-size: 5rem;
+	margin-top: 0px;
+	width: 80vw;
+	position: relative;
+	top: 70vh;
+	left: 10vw;
+}
+
+.Writing:after {
+	content: "\258B";
+	color: white;
+	animation: blink 1.3s infinite;
+	-webkit-animation: blink 1.3s infinite;
+	-moz-animation: blink 1.3s infinite;
+	-o-animation: blink 1.3s infinite;
+	margin-left: 2px;
+}
+
+@keyframes blink {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@-webkit-keyframes blink {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@-moz-keyframes blink {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@-o-keyframes blink {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
+.sections {
+	height: 100vh;
+	width: 100vh;
+}
+
+p{
+	margin-top: 0px;
+	width: 80vw;
+	position: relative;
+	left: 10vw;
+}
+
+.Title {
+	font-size: 3rem;
+	margin-top: 0px;
+	top: 25vh;
+}
+
+#SummryText {
+	top: 20vh;
+	text-align: justify;
+}
