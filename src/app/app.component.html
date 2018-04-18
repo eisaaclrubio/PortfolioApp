@@ -1,9 +1,5 @@
-<fa name="fal {{ icon[0] }}" [style.top]="top[0]" class="circle-o {{ active[0] }} sidebar sidebar-link" id="sidebar-Summary"></fa>
-<fa name="fal {{ icon[1] }}" [style.top]="top[1]" class="circle-o {{ active[1] }} sidebar sidebar-link" id="sidebar-Experience"></fa>
-<fa name="fal {{ icon[2] }}" [style.top]="top[2]" class="circle-o {{ active[2] }} sidebar sidebar-link" id="sidebar-Projects"></fa>
-<fa name="fal {{ icon[3] }}" [style.top]="top[3]" class="circle-o {{ active[3] }} sidebar sidebar-link" id="sidebar-Resume"></fa>
-<fa name="fal {{ icon[4] }}" [style.top]="top[4]" class="circle-o {{ active[4] }} sidebar sidebar-link" id="sidebar-ContactMe"></fa>
-<a href="https://github.com/Isaaclrubio" target="_blank">
+<fa *ngFor="let inx of idIndex" (click)="click(inx)" (mouseenter)="mEnter(inx)" (mouseleave)="mLeave()" name="fal {{ icon[inx] }}" [style.top]="top[inx]" class="circle-o {{ active[inx] }} sidebar sidebar-link" id="sidebar-{{ IDs[inx] }}"></fa>
+<a href="https://github.com/eisaaclrubio" target="_blank">
   <fa name="fal fa-github" [style.top]="top[5]" class="sidebar" id="sidebar-GitHub"></fa>
 </a>
 <a href="https://www.linkedin.com/in/isaaclrubio/" target="_blank">
@@ -16,8 +12,8 @@
 
 <section id="Summary" #Summary class="sections">
   <p class="Title Writing">// Summary</p>
-  <p class="Writing" id="SummryText">Efficient and reliable software tester with a diversified skill set covering embedded software, manual testing and app development. Proactive and passionate to learn and use new technologies and systems. Experienced using Linux and Windows OS for Desktop and extensive knowledge in python, C, Java and SQL databases, aiming to utilize programming skills, database knowledge and offering creative problem-solving skills. <br>
-  Currently playing a key role in the development of the Pyroute Testing Framework as Core Developer using Agile methodologies, Python-based Selenium Webdriver, bash/ shell scripts, defect/bug tracking skills and automation testing. </p>
+  <p class="Writing" id="SummryText">Efficient and reliable software engineer with a diversified skill set covering automation testing, manual testing and web app development. Proactive and passionate to learn and use new technologies. Experienced using Linux and Windows OS for Desktop including maintenance tasks automation using shell and bash scripts. Extensive knowledge of JavaScript, Python, CSS, HTML and SQL databases, aiming to utilize programming skills and offering creative problem-solving skills.<br>
+    Currently playing a key role in the development of the Pyroute Testing Framework as Core Developer using Agile methodologies, Python-based Selenium Webdriver, bash/ shell scripts, defect/bug tracking skills and automation testing.</p>
 </section>
 
 <section id="Experience" #Experience class="sections">
@@ -35,3 +31,5 @@
 <section id="ContactMe" #ContactMe class="sections">
   <p class="Title Writing">// Contact Me</p>
 </section>
+
+<p id="Label" *ngIf="Over" [style.top]="topSingle">{{ Tag }}</p>

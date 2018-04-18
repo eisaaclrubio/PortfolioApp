@@ -7,13 +7,17 @@ import { Component, OnInit, HostListener, ElementRef, AfterViewInit, ViewChild }
 })
 export class AppComponent implements OnInit {
   title = 'app';
+  Over = false;
+  topSingle: string = "top[0]";
   width: number;
   height: number;
   position: number;
   top: Array<string> = ["", "", "", "", "", "", ""];
   icon: Array<string> = ["fa-circle-o", "fa-circle-o", "fa-circle-o",
   "fa-circle-o", "fa-circle-o"];
+  idIndex: Array<number> = [0, 1, 2, 3, 4];
   IDs: Array<string> = ["Summary", "Experience", "Projects", "Resume", "ContactMe"];
+  Tag: string = "";
   @ViewChild("Summary") Summary: ElementRef;
   @ViewChild("Experience") Experience: ElementRef;
   @ViewChild("Projects") Projects: ElementRef;
@@ -24,8 +28,8 @@ export class AppComponent implements OnInit {
   active: Array<string> = ["", "", "", "", ""];
 
   ngOnInit() {
-    this.width = window.screen.width;
-    this.height = window.screen.height;
+    this.width = window.innerWidth;
+    this.height = window.innerHeight;
     this.Sections = [this.Summary, this.Experience, this.Projects, this.Resume, this.ContactMe];
     this.drawSidebar(this.width, this.height);
   }
@@ -45,9 +49,12 @@ export class AppComponent implements OnInit {
 
   @HostListener("window:resize", [])
   onWindowResize() {
+    this.width = window.innerWidth;
+    this.height = window.innerHeight;
     for( let section in this.Sections){
       this.Positions[section] = this.Sections[section].nativeElement.offsetTop;
     }
+    this.drawSidebar(this.width, this.height);
   }
 
   @HostListener("window:scroll", [])
@@ -66,5 +73,34 @@ export class AppComponent implements OnInit {
         this.active = ["", "", "", "", ""];
       }
     }
+  }
+
+  mEnter(inx: number) {
+    this.Over = true;
+    this.Tag = this.IDs[inx];
+    this.topSingle = this.top[inx]
+  }
+
+  mLeave() {
+    this.Over = false;
+  }
+
+  smoothScroll(i: number, parts: number, current: number) {
+    if (i <= 80) {
+      setTimeout(()=> {
+        window.scrollTo(0, current+(parts*i));
+        i++;
+        this.smoothScroll(i, parts, current);
+      },10);
+    }
+  }
+
+  click(sec: number) {
+    let pos = this.Sections[sec].nativeElement.offsetTop;
+    //window.scrollTo({ left: 0, top: pos, behavior: 'smooth' });
+    let parts = (pos-window.pageYOffset)/80;
+    let current = window.pageYOffset;
+    let i = 1;
+    this.smoothScroll(i, parts, current);
   }
 }
