@@ -1,0 +1,17 @@
+<div class="conversation" [ngClass]="[hiddenStart]" (click)="open()">
+    <fa name="fal fa-comments-o" size="2" id="start"></fa>
+</div>
+<div class="container" [ngClass]="[hiddenConversation]">
+  <div class="header">
+    <span id="user">Isaac L. Rubio</span>
+    <fa name="fal fa-times-circle" id="close" (click)="hide()"></fa>
+  </div>
+  <div class="feed inh">
+    <p class="message sent-message">Hey how are you?</p>
+    <p class="message recived-message">fine thanks</p>
+  </div>
+  <form class="write">
+    <input type="text" placeholder="Type your message" class="text inh">
+    <button type="submit" class="message-submit inh">Send</button>
+  </form>
+</div>

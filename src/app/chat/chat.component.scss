@@ -1,0 +1,159 @@
+.is-visible {
+    visibility: hidden!important;
+    opacity: 0!important;
+}
+
+div {
+    padding: 0px;
+    margin: 0px;
+}
+
+.conversation {
+    background-color: darkcyan;
+    border-radius: 15px 15px 15px 15px;
+    width: 45px;
+    height: 45px;
+    position: fixed;
+    right: 5vw;
+    bottom: 5vh;
+    z-index: 1500;
+    &:hover {
+        background-color: #333;
+    }
+    transition: all 500ms;
+    opacity: 1;
+}
+
+#start {
+    position: absolute;
+    margin-left: 50%;
+    margin-top: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.container {
+    width: 265px;
+    height: 50vh;
+    border-radius: 15px 15px 15px 15px;
+    background-color: white;
+    position: fixed;
+    right: 5vw;
+    bottom: 5vh;
+    transition: all 500ms;
+    opacity: 1;
+}
+
+.header {
+    position: absolute;
+    width: 100%;
+    height: 35px;
+    border-radius: 15px 15px 0px 0px;
+    background-color: darkcyan;
+}
+
+#user::before {
+    content: '';
+    position: absolute;
+    top: 0.15em;
+    left: -15px;
+    border-color: #10e457;
+    border-style: solid;
+    border-width: 0.3em;
+    border-radius: 0.3em;
+    height: 0.5em;
+    width: 0.5em;
+}
+
+#user {
+    font-weight: bolder;
+    position: relative;
+    top: 1vh;
+    left: 30px;
+}
+
+#close {
+    position: absolute;
+    top: 1vh;
+    right: 15px;
+    cursor: pointer;
+    &:hover {
+        color: #333;
+    }
+}
+
+.feed {
+    position: absolute;
+    top: 35px;
+    bottom: 35px;
+    width: 100%;
+    background-color: white;
+    overflow-y: scroll;
+}
+
+.message {
+    background-color: darkcyan;
+    position: relative;
+    margin: 10px;
+    max-width: 85%;
+    border-color: darkcyan;
+    border-style: solid;
+    border-width: 5px;
+    display:inline-block;
+}
+
+.sent-message {
+    right: -90px;
+    border-radius: 10px 10px 0px 10px;
+}
+
+.recived-message {
+    border-radius: 10px 10px 10px 0px;
+}
+
+.write {
+    border-style: solid;
+    border-width: 1px;
+    border-color: gray;
+    border-radius: 15px;
+    position: absolute;
+    bottom: 2.5px;
+    left: 2.5%;
+    padding: 0;
+    margin: 0;
+    width: 95%;
+    height: 30px;
+}
+
+.text {
+    position: relative;
+    left: 10px;
+    top: 2.5px;
+    width: 70%;
+    height: 20px;
+    padding-left: 8px;
+    border-width: 0.3px;
+    border-radius: 15px 15px 15px 15px;
+    outline: none!important;
+}
+
+.message-submit {
+    position: absolute;
+    top: 2.5px;
+    right: 5px;
+    color: darkcyan;
+    border: none;
+    background: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+    line-height: 1;
+    padding: 6px 10px;
+    border-radius: 5px;
+    outline: none!important;
+    transition: background .2s ease;
+    cursor:pointer;
+    &:hover {
+        background: #fff;
+        color: #333;
+      }
+}
