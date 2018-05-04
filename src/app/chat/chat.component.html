@@ -6,12 +6,15 @@
     <span id="user">Isaac L. Rubio</span>
     <fa name="fal fa-times-circle" id="close" (click)="hide()"></fa>
   </div>
-  <div class="feed inh">
-    <p class="message sent-message">Hey how are you?</p>
-    <p class="message recived-message">fine thanks</p>
+  <div id="feed">
+    <p *ngFor="let chat of messages" class="message" [ngClass]="{
+      'sent-message': chat.user == 'Isaac',
+      'sent-message-last': chat.isLast && chat.user == 'Isaac',
+      'recived-message-last': chat.isLast && chat.user == 'Person'
+    }">{{ chat.message }}</p>
   </div>
-  <form class="write">
-    <input type="text" placeholder="Type your message" class="text inh">
+  <form class="write" [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+    <input type="text" placeholder="Type your message" class="text inh" [formControl]="messageForm.controls['message']" [(ngModel)]="someText">
     <button type="submit" class="message-submit inh">Send</button>
   </form>
 </div>

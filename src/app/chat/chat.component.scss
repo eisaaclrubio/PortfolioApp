@@ -82,8 +82,9 @@ div {
     }
 }
 
-.feed {
+#feed {
     position: absolute;
+    padding-top: 10px;
     top: 35px;
     bottom: 35px;
     width: 100%;
@@ -92,23 +93,33 @@ div {
 }
 
 .message {
+    min-width: 20px;
     background-color: darkcyan;
     position: relative;
-    margin: 10px;
+    margin: 1px;
+    margin-left: 10px;
+    margin-right: 10px;
     max-width: 85%;
     border-color: darkcyan;
     border-style: solid;
     border-width: 5px;
     display:inline-block;
+    border-radius: 10px 10px 10px 10px;
 }
 
 .sent-message {
-    right: -90px;
-    border-radius: 10px 10px 0px 10px;
+    float: right;
+    clear: both;
 }
 
-.recived-message {
+.sent-message-last {
+    border-radius: 10px 10px 0px 10px;
+    margin-bottom: 2px;
+}
+
+.recived-message-last {
     border-radius: 10px 10px 10px 0px;
+    margin-bottom: 2px;
 }
 
 .write {
