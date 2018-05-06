@@ -1,20 +1,32 @@
-<div class="conversation" [ngClass]="[hiddenStart]" (click)="open()">
+<div class="conversation" [ngClass]="{'is-visible': hiddenStart}" (click)="open()">
     <fa name="fal fa-comments-o" size="2" id="start"></fa>
 </div>
-<div class="container" [ngClass]="[hiddenConversation]">
+<div class="container" [ngClass]="{'is-visible': hiddenConversation}">
   <div class="header">
+    <figure class="avatar">
+      <img class="avatar-size" src="assets/ISAAC.jpg">
+    </figure>
     <span id="user">Isaac L. Rubio</span>
     <fa name="fal fa-times-circle" id="close" (click)="hide()"></fa>
   </div>
   <div id="feed">
-    <p *ngFor="let chat of messages" class="message" [ngClass]="{
-      'sent-message': chat.user == 'Isaac',
-      'sent-message-last': chat.isLast && chat.user == 'Isaac',
-      'recived-message-last': chat.isLast && chat.user == 'Person'
-    }">{{ chat.message }}</p>
+    <p class="message sent-message" *ngFor="let msg of (feedObservable | async)">{{ msg.message }}</p>
   </div>
   <form class="write" [formGroup]="messageForm" (ngSubmit)="onSubmit()">
-    <input type="text" placeholder="Type your message" class="text inh" [formControl]="messageForm.controls['message']" [(ngModel)]="someText">
+    <input type="text" placeholder="Type your message" class="text" [formControl]="messageForm.controls['message']" [(ngModel)]="someText">
     <button type="submit" class="message-submit inh">Send</button>
   </form>
+</div>
+<div class="welcome" [ngClass]="{'is-visible': emailSubmit}">
+    <div class="header">
+      <figure class="avatar">
+        <img class="avatar-size" src="assets/ISAAC.jpg">
+      </figure>
+      <span id="user">Isaac L. Rubio</span>
+      <fa name="fal fa-times-circle" id="close" (click)="hide()"></fa>
+    </div>
+    <p class="welcome-message">Welcome to my portfolio. How can I help you?</p>
+    <form class="sign-in" [formGroup]="emailForm" (ngSubmit)="submitEmail()">
+      <input class="email" type="text" placeholder="Enter your email to start to chat..." [formControl]="emailForm.controls['email']" [(ngModel)]="email">
+    </form>
 </div>

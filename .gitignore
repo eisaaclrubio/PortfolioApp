@@ -8,6 +8,8 @@
 
 # dependencies
 /node_modules
+/firebase
+/firebase_functions
 
 # IDEs and editors
 /.idea
@@ -34,6 +36,7 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+*/environments
 
 # e2e
 /e2e/*.js

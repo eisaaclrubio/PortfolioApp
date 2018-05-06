@@ -1,3 +1,5 @@
+$chatBackground: rgb(57, 75, 95);
+
 .is-visible {
     visibility: hidden!important;
     opacity: 0!important;
@@ -9,7 +11,7 @@ div {
 }
 
 .conversation {
-    background-color: darkcyan;
+    background-color: $chatBackground;
     border-radius: 15px 15px 15px 15px;
     width: 45px;
     height: 45px;
@@ -17,8 +19,12 @@ div {
     right: 5vw;
     bottom: 5vh;
     z-index: 1500;
+    border: 1px solid;
+    border-color: $chatBackground;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,.4);
     &:hover {
         background-color: #333;
+        border-color: #333;
     }
     transition: all 500ms;
     opacity: 1;
@@ -32,11 +38,78 @@ div {
     cursor: pointer;
 }
 
-.container {
-    width: 265px;
-    height: 50vh;
-    border-radius: 15px 15px 15px 15px;
+.welcome {
+    width: 376px;
+    height: 178px;
+    border-radius: 10px;
+    background-color: $chatBackground;
+    border: 1px solid;
+    border-color: $chatBackground;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,.4);
+    position: fixed;
+    right: 5vw;
+    bottom: 5vh;
+    transition: all 500ms;
+    opacity: 1;
+}
+
+.sign-in {
+    width: 100%;
+    height: 84px;
     background-color: white;
+    border-radius: 0px 0px 10px 10px;
+    position: absolute;
+    bottom: 0px;
+}
+
+.email {
+    width: 100%;
+    height: 30px;
+    border: none;
+    outline: none!important;
+    padding-left: 10px;
+    padding-right: 10px; 
+}
+
+.welcome-message {
+    line-height: 1.35;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+    position: absolute;
+    margin-left: 3%;
+    top: 55px;
+    width: 90%;
+    height: 30px;
+    color: white;
+}
+
+.avatar{
+    position: absolute;
+    top: -30px;
+    left: 10px;
+    width: 70px;
+    height: 70px;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    border: 3px solid $chatBackground;
+    border-radius: 150px;
+}
+
+.avatar-size {
+    width: 70px;
+    height: auto;
+}
+
+.container {
+    width: 376px;
+    height: 50vh;
+    border-radius: 10px;
+    background-color: $chatBackground;
+    border: 1px solid;
+    border-color: $chatBackground;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,.4);
     position: fixed;
     right: 5vw;
     bottom: 5vh;
@@ -47,29 +120,18 @@ div {
 .header {
     position: absolute;
     width: 100%;
-    height: 35px;
-    border-radius: 15px 15px 0px 0px;
-    background-color: darkcyan;
-}
-
-#user::before {
-    content: '';
-    position: absolute;
-    top: 0.15em;
-    left: -15px;
-    border-color: #10e457;
-    border-style: solid;
-    border-width: 0.3em;
-    border-radius: 0.3em;
-    height: 0.5em;
-    width: 0.5em;
+    height: 40px;
+    border-radius: 5px 5px 0px 0px;
+    background-color: $chatBackground;
 }
 
 #user {
     font-weight: bolder;
+    font-size: 13pt;
+    color: rgb(213, 211, 211);
     position: relative;
     top: 1vh;
-    left: 30px;
+    left: 95px;
 }
 
 #close {
@@ -85,7 +147,7 @@ div {
 #feed {
     position: absolute;
     padding-top: 10px;
-    top: 35px;
+    top: 40px;
     bottom: 35px;
     width: 100%;
     background-color: white;
@@ -94,13 +156,13 @@ div {
 
 .message {
     min-width: 20px;
-    background-color: darkcyan;
+    background-color: $chatBackground;
     position: relative;
     margin: 1px;
     margin-left: 10px;
     margin-right: 10px;
     max-width: 85%;
-    border-color: darkcyan;
+    border-color: $chatBackground;
     border-style: solid;
     border-width: 5px;
     display:inline-block;
@@ -138,8 +200,8 @@ div {
 
 .text {
     position: relative;
-    left: 10px;
-    top: 2.5px;
+    left: 5px;
+    top: 2px;
     width: 70%;
     height: 20px;
     padding-left: 8px;
@@ -150,16 +212,17 @@ div {
 
 .message-submit {
     position: absolute;
-    top: 2.5px;
+    top: 3.5px;
     right: 5px;
-    color: darkcyan;
+    color: $chatBackground;
     border: none;
     background: #fff;
     font-size: 12px;
     text-transform: uppercase;
     line-height: 1;
+    height: 20px;
     padding: 6px 10px;
-    border-radius: 5px;
+    border-radius: 15px;
     outline: none!important;
     transition: background .2s ease;
     cursor:pointer;
