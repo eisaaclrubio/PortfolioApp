@@ -5,4 +5,5 @@ export class ChatMessage {
     message?: string;
     isLast?: boolean;
     timeSent?: string;
+    channel?: string;
 }

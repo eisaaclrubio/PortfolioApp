@@ -10,7 +10,9 @@
     <fa name="fal fa-times-circle" id="close" (click)="hide()"></fa>
   </div>
   <div id="feed">
-    <p class="message sent-message" *ngFor="let msg of (feedObservable | async)">{{ msg.message }}</p>
+    <p class="message sent-message" *ngFor="let msg of (feedObservable | async)" [ngClass]="{'sent-message': msg.user != 'Isaac', 
+    'sent-message-last': msg.isLast && msg.user != 'Isaac',
+    'recived-message-last': msg.isLast && msg.user == 'Isaac'}">{{ msg.message }}</p>
   </div>
   <form class="write" [formGroup]="messageForm" (ngSubmit)="onSubmit()">
     <input type="text" placeholder="Type your message" class="text" [formControl]="messageForm.controls['message']" [(ngModel)]="someText">

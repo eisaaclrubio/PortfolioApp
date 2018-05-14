@@ -41,12 +41,21 @@ export class ChatComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     this.getMessages();
+    let element = document.getElementById('feed');
+    element.scrollTop = element.scrollHeight;
   }
 
   getMessages() {
     this.chat.getMessages().valueChanges().subscribe((snaps) => {
       this.getAsyncMessages(snaps).then((feed) => {
-        this.feedObservable = feed;
+        let temp : Observable<ChatMessage[]> | any = feed;
+        let elements = temp.value;
+        for(let i=0; i<elements.length-1; i++){
+          elements[i]['isLast'] = elements[i]['user'] == elements[i+1]['user'] ? false : true;
+        }
+        elements[elements.length-1]['isLast'] = true;
+        temp.value = elements;
+        this.feedObservable = temp;
         let element = document.getElementById('feed');
         element.scrollTop = element.scrollHeight;
       })
@@ -63,7 +72,6 @@ export class ChatComponent implements OnInit, OnChanges {
   onSubmit() {
     this.chat.sendMessage(this.messageForm.value.message);
     this.someText = '';
-    this.getMessages();
   }
 
   submitEmail() {
