@@ -73,12 +73,13 @@ div {
 
 .welcome-message {
     line-height: 1.35;
-    font-size: 15px;
+    font-size: 14px;
+    font-size-adjust:0.5;
     font-weight: bold;
     font-family: 'Open Sans', sans-serif;
     position: absolute;
     margin-left: 3%;
-    top: 55px;
+    top: 50px;
     width: 90%;
     height: 30px;
     color: white;

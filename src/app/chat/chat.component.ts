@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ChatService } from '../services/chat.service';
 import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
@@ -9,10 +9,12 @@ import { Observable } from 'rxjs/Observable';
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.scss']
+  styleUrls: ['./chat.component.scss', './chat.component.mobile.scss']
 })
 export class ChatComponent implements OnInit, OnChanges {
+  tone = new Audio();
   feedObservable: Observable<ChatMessage[]> | any;
+  @ViewChild('message') messageFocus: ElementRef;
   messageForm: FormGroup;
   emailForm: FormGroup;
   hiddenStart: boolean;
@@ -32,11 +34,14 @@ export class ChatComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
+    this.tone.src = 'https://www.soundjay.com/button/button-09.wav';
+    this.tone.load();
     this.someText = '';
     this.email = '';
-    this.hiddenStart = false;
+    this.hiddenStart = true;
     this.hiddenConversation = true;
     this.emailSubmit = true;
+    this.setUp();
   }
 
   ngOnChanges() {
@@ -54,6 +59,7 @@ export class ChatComponent implements OnInit, OnChanges {
           elements[i]['isLast'] = elements[i]['user'] == elements[i+1]['user'] ? false : true;
         }
         elements[elements.length-1]['isLast'] = true;
+        elements[elements.length-1]['user'] == 'Isaac' ? this.playTone() : null;
         temp.value = elements;
         this.feedObservable = temp;
         let element = document.getElementById('feed');
@@ -72,6 +78,11 @@ export class ChatComponent implements OnInit, OnChanges {
   onSubmit() {
     this.chat.sendMessage(this.messageForm.value.message);
     this.someText = '';
+    this.messageFocus.nativeElement.focus();
+  }
+
+  playTone(){
+    this.tone.play();
   }
 
   submitEmail() {
@@ -96,6 +107,16 @@ export class ChatComponent implements OnInit, OnChanges {
     this.hiddenStart = false;
     this.emailSubmit = true;
     this.hiddenConversation = true;
+  }
+
+  setUp(){
+    setTimeout(() => {
+      this.hiddenStart = false;
+      this.open();
+      setTimeout(() => {
+        this.hide();
+      }, 10);
+    }, 2000);
   }
 
   open(){

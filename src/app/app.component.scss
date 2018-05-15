@@ -1,7 +1,3 @@
-ul {
-	list-style-type: none;
-}
-
 a {
 	color: inherit;
 	text-decoration: none;
@@ -31,7 +27,7 @@ a {
 
 #home {
 	height: 100vh;
-	width: 98.8vw;
+	width: 100vw;
 	position: relative;
 	background: url("../extras/clint-mckoy-463797.jpg") no-repeat center center fixed;
 	-webkit-background-size: cover;
@@ -87,7 +83,7 @@ h1 {
 
 .sections {
 	height: 100vh;
-	width: 100vh;
+	width: 100vw;
 }
 
 p {
@@ -100,15 +96,16 @@ p {
 .Title {
 	font-size: 3rem;
 	margin-top: 0px;
-	top: 25vh;
+	top: 20vh;
 }
 
 #SummryText {
 	top: 20vh;
+	font-size: 1.3rem;
 	text-align: justify;
 }
 
 #Label {
 	position: fixed;
-	left: 30px;
+	left: 2.5vw;
 }

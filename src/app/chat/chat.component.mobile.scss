@@ -1,0 +1,35 @@
+@media screen and (max-width: 411px){
+    .conversation {
+        position: fixed;
+        right: 5vw;
+        bottom: 5vh;
+    }
+
+    .welcome {
+        width: 90%;
+        position: fixed;
+        right: 5vw;
+        bottom: 5vh;
+    }
+
+    .welcome-message {
+        line-height: 1.35;
+        font-size: 15px;
+        font-weight: bold;
+        font-family: 'Open Sans', sans-serif;
+        position: absolute;
+        margin-left: 3%;
+        top: 40px;
+        width: 90%;
+        height: 30px;
+        color: white;
+    }
+
+    .container {
+        width: 90%;
+        height: 70vh;
+        position: fixed;
+        right: 5vw;
+        bottom: 5vh;
+    }
+}

@@ -15,7 +15,7 @@
     'recived-message-last': msg.isLast && msg.user == 'Isaac'}">{{ msg.message }}</p>
   </div>
   <form class="write" [formGroup]="messageForm" (ngSubmit)="onSubmit()">
-    <input type="text" placeholder="Type your message" class="text" [formControl]="messageForm.controls['message']" [(ngModel)]="someText">
+    <input type="text" placeholder="Type your message" class="text" [formControl]="messageForm.controls['message']" [(ngModel)]="someText" #message>
     <button type="submit" class="message-submit inh">Send</button>
   </form>
 </div>
