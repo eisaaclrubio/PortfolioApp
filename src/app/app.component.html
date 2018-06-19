@@ -1,37 +1,45 @@
-<fa *ngFor="let inx of idIndex" (click)="click(inx)" (mouseenter)="mEnter(inx)" (mouseleave)="mLeave()" name="fal {{ icon[inx] }}" [style.top]="top[inx]" class="circle-o {{ active[inx] }} sidebar sidebar-link" id="sidebar-{{ IDs[inx] }}"></fa>
-<a href="https://github.com/eisaaclrubio" target="_blank">
-  <fa name="fal fa-github" [style.top]="top[5]" class="sidebar" id="sidebar-GitHub"></fa>
-</a>
-<a href="https://www.linkedin.com/in/isaaclrubio/" target="_blank">
-  <fa name="fal fa-linkedin-square" [style.top]="top[6]" class="sidebar" id="sidebar-LinkedIn"></fa>
-</a>
-
-<section id="home">
-  <h1 class="Writing">Isaac L. Rubio</h1>
-</section>
-
-<section id="Summary" #Summary class="sections">
-  <p class="Title Writing">// Summary</p>
-  <p class="Writing" id="SummryText">Efficient and reliable software engineer with a diversified skill set covering automation testing, manual testing and web app development. Proactive and passionate to learn and use new technologies. Experienced using Linux and Windows OS for Desktop including maintenance tasks automation using shell and bash scripts. Extensive knowledge of JavaScript, Python, CSS, HTML and SQL databases, aiming to utilize programming skills and offering creative problem-solving skills.<br>
-    Currently playing a key role in the development of the Pyroute Testing Framework as Core Developer using Agile methodologies, Python-based Selenium Webdriver, bash/ shell scripts, defect/bug tracking skills and automation testing.</p>
-</section>
-
-<section id="Experience" #Experience class="sections">
-  <p class="Title Writing">// Experience</p>
-</section>
-
-<section id="Projects" #Projects class="sections">
-  <p class="Title Writing">// Projects</p>
-</section>
-
-<section id="Resume" #Resume class="sections">
-  <p class="Title Writing">// Resume</p>
-</section>
-
-<section id="ContactMe" #ContactMe class="sections">
-  <p class="Title Writing">// Contact Me</p>
-</section>
-
-<p id="Label" *ngIf="Over" [style.top]="topSingle">{{ Tag }}</p>
-
-<app-chat></app-chat>
+<div id="container" appMousewheel (mouseWheelUp)="mouseWheelUpFunc()" (mouseWheelDown)="mouseWheelDownFunc()">
+  <fa *ngFor="let inx of idIndex" (click)="click(inx)" (mouseenter)="mEnter(inx)" (mouseleave)="mLeave()" name="fal {{ icon[inx] }}" [style.top]="top[inx]" class="circle-o {{ active[inx] }} sidebar sidebar-link" id="sidebar-{{ IDs[inx] }}"></fa>
+  <a href="https://github.com/eisaaclrubio" target="_blank">
+    <fa name="fal fa-github" [style.top]="top[4]" class="sidebar" id="sidebar-GitHub"></fa>
+  </a>
+  <a href="https://www.linkedin.com/in/isaaclrubio/" target="_blank">
+    <fa name="fal fa-linkedin-square" [style.top]="top[5]" class="sidebar" id="sidebar-LinkedIn"></fa>
+  </a>
+  
+  <section id="home">
+    <h1 class="Writing">Isaac L. Rubio</h1>
+  </section>
+  
+  <section id="Summary" #Summary class="sections">
+    <p class="Title Writing">// Summary</p>
+    <p class="Writing" id="SummryText">Efficient and reliable software engineer with a diversified skill set, covering software
+      development, and automation testing. Proactively seeking to learn and use new and diverse
+      technologies. Experienced using Linux and Windows OS for Desktop including maintenance
+      tasks automation using shell and bash scripts. Extensive knowledge of JavaScript, Python,
+      Java, CSS, HTML and SQL databases, aiming to utilize programming skills and offering
+      creative problem-solving skills. <br>
+      Currently playing a key role in the development of the Pyroute Testing Framework as Core
+      Developer using Agile methodologies, Python-based Selenium WebDriver, bash/ shell
+      scripts, defect/bug tracking skills and automation testing. Motivated and has strong
+      programming skills and is consistently performing well in challenging environments and able
+      to take on different kinds of roles and wear multiple hats while still producing software at an
+      efficient pace.</p>
+  </section>
+  
+  <section id="Experience" #Experience class="sections">
+    <p class="Title Writing">// Experience</p>
+  </section>
+  
+  <section id="Projects" #Projects class="sections">
+    <p class="Title Writing">// Projects</p>
+  </section>
+  
+  <section id="ContactMe" #ContactMe class="sections">
+    <p class="Title Writing">// Contact Me</p>
+  </section>
+  
+  <p id="Label" *ngIf="Over" [style.top]="topSingle">{{ Tag }}</p>
+  
+  <app-chat></app-chat>
+</div>

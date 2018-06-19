@@ -12,11 +12,13 @@ import { AppComponent } from './app.component';
 import { ChatComponent } from './chat/chat.component';
 
 import { ChatService } from './services/chat.service';
+import { MousewheelDirective } from './mousewheel.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChatComponent
+    ChatComponent,
+    MousewheelDirective
   ],
   imports: [
     FormsModule,

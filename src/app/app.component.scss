@@ -1,3 +1,9 @@
+#container {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 a {
 	color: inherit;
 	text-decoration: none;
@@ -29,7 +35,7 @@ a {
 	height: 100vh;
 	width: 100vw;
 	position: relative;
-	background: url("../extras/clint-mckoy-463797.jpg") no-repeat center center fixed;
+	background: url("/assets/clint-mckoy-463797-small.jpg") no-repeat center center fixed;
 	-webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;

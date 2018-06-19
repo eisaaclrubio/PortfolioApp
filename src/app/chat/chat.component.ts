@@ -11,17 +11,19 @@ import { Observable } from 'rxjs/Observable';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss', './chat.component.mobile.scss']
 })
-export class ChatComponent implements OnInit, OnChanges {
-  tone = new Audio();
+export class ChatComponent implements OnInit {
   feedObservable: Observable<ChatMessage[]> | any;
   @ViewChild('message') messageFocus: ElementRef;
+  feedEelement: any;
   messageForm: FormGroup;
   emailForm: FormGroup;
   hiddenStart: boolean;
   hiddenConversation: boolean;
+  authorized: boolean;
   emailSubmit: boolean;
   messages: Array<any>;
   someText: string;
+  settedUp: boolean;
   email: string;
 
   constructor( private chat: ChatService ) { 
@@ -34,44 +36,26 @@ export class ChatComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    this.tone.src = 'https://www.soundjay.com/button/button-09.wav';
-    this.tone.load();
     this.someText = '';
     this.email = '';
+    this.authorized = false;
     this.hiddenStart = true;
+    this.settedUp = false;
     this.hiddenConversation = true;
     this.emailSubmit = true;
     this.setUp();
   }
 
-  ngOnChanges() {
-    this.getMessages();
-    let element = document.getElementById('feed');
-    element.scrollTop = element.scrollHeight;
-  }
-
   getMessages() {
     this.chat.getMessages().valueChanges().subscribe((snaps) => {
-      this.getAsyncMessages(snaps).then((feed) => {
-        let temp : Observable<ChatMessage[]> | any = feed;
-        let elements = temp.value;
-        for(let i=0; i<elements.length-1; i++){
-          elements[i]['isLast'] = elements[i]['user'] == elements[i+1]['user'] ? false : true;
+      if(snaps.length > 0){
+        for(let i=0; i<snaps.length-1; i++){
+          snaps[i]['isLast'] = snaps[i]['user'] == snaps[i+1]['user'] ? false : true;
         }
-        elements[elements.length-1]['isLast'] = true;
-        elements[elements.length-1]['user'] == 'Isaac' ? this.playTone() : null;
-        temp.value = elements;
-        this.feedObservable = temp;
-        let element = document.getElementById('feed');
-        element.scrollTop = element.scrollHeight;
-      })
-    });
-  }
-
-  getAsyncMessages(feed: ChatMessage[]) {
-    return new Promise((resolve, reject) => {
-      resolve(Observable.of(feed));
-      reject('Error');
+        snaps[snaps.length-1]['isLast'] = true;
+        this.feedObservable = Observable.of(snaps);
+        this.updateScroll();
+      }
     });
   }
 
@@ -79,10 +63,6 @@ export class ChatComponent implements OnInit, OnChanges {
     this.chat.sendMessage(this.messageForm.value.message);
     this.someText = '';
     this.messageFocus.nativeElement.focus();
-  }
-
-  playTone(){
-    this.tone.play();
   }
 
   submitEmail() {
@@ -109,18 +89,30 @@ export class ChatComponent implements OnInit, OnChanges {
     this.hiddenConversation = true;
   }
 
+  updateScroll() {
+    let element = document.getElementById('feed');
+    element.scrollTop = element.scrollHeight;
+  }
+
   setUp(){
-    setTimeout(() => {
-      this.hiddenStart = false;
-      this.open();
-      setTimeout(() => {
-        this.hide();
-      }, 10);
-    }, 2000);
+    this.hiddenStart = true;
+    this.chat.isAuth().subscribe((auth) => {
+      if (auth !== undefined && auth !== null && this.settedUp) {
+        this.authorized = true;
+        this.getMessages();
+      } else if(auth !== undefined && auth !== null){
+        this.authorized = true;
+        this.hiddenStart = false;
+        this.getMessages();
+      } else {
+        this.hiddenStart = false;
+      }
+      this.settedUp = true;
+    });
   }
 
   open(){
-    if(this.chat.isAuth()){
+    if(this.authorized){
       this.hiddenStart = true;
       this.emailSubmit = true;
       this.hiddenConversation = false;
@@ -130,5 +122,5 @@ export class ChatComponent implements OnInit, OnChanges {
       this.emailSubmit = false;
       this.hiddenConversation = true;
     }
-  }
+  }  
 }

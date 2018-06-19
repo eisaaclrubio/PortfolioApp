@@ -53,8 +53,8 @@ export class ChatService {
     });
   }
 
-  isAuth(): boolean {
-    return this.user != null ? true : false;
+  isAuth(): Observable<any> {
+    return this.afAuth.authState;
   }
 
   getTimeStamp() {
